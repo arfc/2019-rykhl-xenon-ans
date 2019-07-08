@@ -1,6 +1,6 @@
 \documentclass{anstrans}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{The impact of xenon-135 poisoning on Load Following Transatomic Power 
+\title{The Impact of Xenon-135 on Load Following Transatomic Power 
 Molten Salt Reactor}
 
 \author{Andrei Rykhlevskii, Daniel O'grady, Tomasz Kozlowski, Kathryn Huff}
@@ -22,8 +22,13 @@ Molten Salt Reactor}
 
 \usepackage[acronym,toc]{glossaries}  % acronyms inclusion
 \include{acros}
-
-\usepackage{tabularx} % for nice wrapping of table text
+\usepackage{multirow} 
+\usepackage{tabularx}
+\newcolumntype{b}{>{\hsize=1.0\hsize}X}
+\newcolumntype{s}{>{\hsize=.5\hsize}X}
+\newcolumntype{m}{>{\hsize=.75\hsize}X}
+\newcolumntype{x}{>{\hsize=.25\hsize}X}
+\newcolumntype{a}{>{\hsize=.11\hsize}X}
 
 \makeglossaries
 
@@ -42,9 +47,9 @@ First-of-kind civil \gls{MSR} was developed, built and operated in \gls{ORNL}
 in 1960s. It was called \gls{MSRE} and at the moment is theonly one operated 
 \gls{MSR} worldwide. Based on experience from this experiment first commercial
 \gls{MSBR} was designed in early 1970s. In the thermal spectrum \gls{MSR}, 
-fluorides of fissile and/or fertile materials (i.e.UF$_4$, PuF$_3$ and/or 
+fluorides of fissile and/or fertile materials (i.e.UF$_4$ and/or 
 ThF$_4$) are mixed with carrier salts (i.e. LiF) to form a liquid fuelwhich 
-is circulated in a loop-type primary circuit which lead to following 
+is circulated in a loop-type primary circuit and leads to following 
 advantages over traditional solid-fueled reactors: (1) relatively low pressure 
 in the primary loop; (2) strong negative thermal feedback; (3) passive decay 
 heat cooling; (4) reduced fuel fabrication costs; (5) online refueling and 
@@ -67,17 +72,18 @@ for thermal neutrons approximately $10^6$ barns) with half-life
 $\tau_{1/2}=9.17h$ and yield for $^{235}$U fission about 6.3\%. The vast 
 majority of xenon-135 (6.1\%) is produced from another fission product - 
 $^{135}$I ($\tau_{1/2}=6.6h$) \cite{lokhov_technical_2011}. Under normal 
-operating conditions, the $^{135}$Xe is burned in the reactor core as it is 
-produced, so while it has a negative impact on the neutron economy, balancing 
-the reactor controls can compensate for its effect. The difficulty comes when 
-the reactor power is reduced and there are fewer neutrons to burn out the 
-$^{135}$Xe, so its concentration increases and further suppresses reactor 
-power. In this case, the core takes some time to recover from the power 
-reduction impact of $^{135}$Xe. This response to changing power levels, 
-particularly from higher to lower power levels, dramatically slows the 
-reactor’s response to power demands. Potentially, $^{135}$Xe removal during 
-reactor operation would allow more flexibly vary power levels to follow power 
-demands, typically referred as `load following'.
+operating conditions, the $^{135}$Xe is being transmuted to $^{136}$Xe 
+('burned') in the reactor core as it is produced, so while it has a negative 
+impact on the neutron economy, balancing the reactor controls can compensate 
+for its effect. The difficulty comes when the reactor power is reduced and 
+there are fewer neutrons to burn out the $^{135}$Xe, so its concentration 
+increases and further suppresses reactor power. In this case, the core takes 
+some time to recover from the power reduction impact of $^{135}$Xe. This 
+response to changing power levels, particularly from higher to lower power 
+levels, dramatically slows the reactor's response to power demands. 
+Potentially, $^{135}$Xe removal during reactor operation would allow more 
+flexibly vary power levels to follow power demands, typically referred as 
+`load following'.
 
 The \gls{TAP} \gls{MSR} design is a 1250 MW$_{th}$ liquid-fueled reactor has 
 been selected as a prototype of modern \gls{MSR}. The \gls{TAP} is an 
@@ -96,7 +102,7 @@ software. The \gls{PWR} transient analysis has been done for single-assembly
 model with burnable poison (gadolinium) provided with Serpent 
 \cite{leppanen_serpent_2015}. All calculations presented in this paper were 
 performed using the Serpent 2 code version 2.1.31 with JEFF-3.1.2 nuclear data 
-\cite{oecd/nea_data_bank_jeff-3.1.2_2014}.
+\cite{oecd/nea_jeff-3.1.2_2014}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Description of the actual work}
 \subsection{Transatomic Power reactor design description}
@@ -111,7 +117,7 @@ allows for an increase in the uranium concentration within the fuel salt from
 27.5\% while maintaining a relatively low melting point (490$^{\circ}$C 
 compared 
 with 434$^{\circ}$C for the original \gls{MSRE}'s salt) 
-\cite{betzler_two-dimensional_2016}. The graphite has a very high 
+\cite{betzler_assessment_2017}. The graphite has a very high 
 thermal scattering cross section which makes it a perfect moderator but has 
 a few major drawbacks: 
 (1) the low lethargy gain per collision requires a large volume of moderator 
@@ -132,208 +138,268 @@ facilitate the commercial deployment of this conceptual design in the current
 commercially available 5\% \gls{LEU} fuel cycle. 
 
 The \gls{TAP} \gls{MSR} primary loop contains the reactor core volume 
-(including 
-the zirconium hydride moderator rods with silicone carbide cladding), pumps, 
-and 
-primary heat exchanger. Pumps circulate the LiF-(Act)F$_4$ 
-fuel salt through the primary loop. The pumps, vessels, tanks, and piping are 
-made of a nickel-based alloy (similar to Hastelloy-N\footnote{ Hastelloy-N  
-is 	very common in reactors now but have been studied and developed at  
-\gls{ORNL} in a program that started in 1950s.}), which is highly resistant to 
-corrosion in various molten salt environments. Inside the reactor vessel, in 
-close proximity to the zirconium hydride moderator rods, the fuel salt is in a 
-critical configuration and generates heat. Table~\ref{tab:tap_tab} contains 
-details of the \gls{TAP} system design which are taken from technical white 
-paper \cite{transatomic_power_corporation_technical_2016} and a neutronics 
-overview \cite{transatomic_power_corporation_neutronics_2016} as well as 
-\gls{ORNL} analysis of the \gls{TAP} design 
-\cite{betzler_two-dimensional_2016, betzler_assessment_2017}. 
+(including the zirconium hydride moderator rods with silicone carbide 
+cladding), pumps, and primary heat exchanger. Pumps circulate the 
+LiF-(Act)F$_4$ fuel salt through the primary loop. The pumps, vessels, tanks, 
+and piping are made of a nickel-based alloy (similar to Hastelloy-N\footnote{ 
+Hastelloy-N  is 	very common in reactors now but have been studied and 
+developed at \gls{ORNL} in a program that started in 1950s.}), which is highly 
+resistant to corrosion in various molten salt environments. Inside the reactor 
+vessel, in close proximity to the zirconium hydride moderator rods, the fuel 
+salt is in a critical configuration and generates heat. 
+Table~\ref{tab:tap_tab} contains details of the \gls{TAP} system design. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[h!]
-	\caption{Summary of principal data for the \gls{TAP} \gls{MSR} 
-		(reproduced from \cite{transatomic_power_corporation_technical_2016, 
-		betzler_assessment_2017}). }
-	\begin{tabularx}{\linewidth}{ X  X}
+	\caption{Summary of principal data for the \gls{TAP} \gls{MSR} 	
+	\cite{transatomic_power_corporation_technical_2016, 
+	transatomic_power_corporation_neutronics_2016}). }
+	\begin{tabularx}{\linewidth}{X  X }
 		\hline
-		Thermal power				           		& 1250 MW$_{th}  $       
+		Thermal power		& 1250 MW$_{th}  $       
 		\\ 
-		Electric power		                		& 520 MW$_e  $ 			 
+		Electric power		& 520 MW$_e  $ 			 
 		\\ 
-		Gross thermal efficiency        			& 44\%     				 
+		Gross thermal efficiency 	& 44\%     				 
 		\\  
-		Outlet temperature							& 620$^{\circ}$C         
+		Outlet temperature			& 620$^{\circ}$C         
 		\\ 
-		Fuel salt components                   & LiF-UF$_4$				 \\  
-		Fuel salt composition                  & 72.5-27.5 mole\%			 
+		Fuel salt components        & LiF-UF$_4$				 \\  
+		Fuel salt composition       & 72.5-27.5 mole\%			 
 		\\  
-		Uranium enrichment                     & 5\% $^{235}$U          	 \\
-		Moderator                              & Zirconium Hydride 
-		(ZrH$_{1.66}$) rods (with silicon carbide cladding) \\
+		Uranium enrichment          & 5\% $^{235}$U          	 \\
+		Moderator & Zirconium Hydride (ZrH) with SiC 
+		cladding \\
 		Neutron spectrum						& 
 		thermal/epithermal                 \\
 		\hline
 	\end{tabularx}
 	\label{tab:tap_tab}
 \end{table}
+\subsection{TAP full-core model} \label{sec:tap_model}
+Advanced geometry surfaces and transformation capabilities of Serpent are 
+employed to represent \gls{TAP} core. Fig.~\ref{fig:tap-serpent-plan} shows 
+the $XY$ section of whole-core configuration at the expected reactor 
+operational level when all control rods are fully withdrawn. This model 
+contains the moderator rods with silicon carbide cladding, pressure vessel, 
+and inlet and outlet plena (Table~\ref{tab:tap_model_param}). Fuel salt flows 
+around rectangular moderator assemblies consisting of lattices of 
+small-diameter zirconium hydride rods in a corrosion-resistant material. 
+Moderator rods configuration chosen to obtain \gls{SVF}  
+($SVF=V_{fuel}/(V_{fuel}+V_{moder})$) approximately 0.9 
+\cite{betzler_assessment_2017}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[h!]
+	\caption{Geometric parameters for the full-core 3D model of 
+		the \gls{TAP} \cite{betzler_assessment_2017}. }
+	\centering
+	\begin{tabularx}{\linewidth}{s s x p{0.12\linewidth}}
+		\hline
+		\textbf{Component} & \textbf{Parameter} & Value      		& 
+		Unit		             \\ \hline
+		\multirow{4}{*}{\begin{tabular}[c]{@{}l@{}}Moderator\\ 
+				rod\end{tabular}} 
+		& Cladding thickness      	  			    & 0.10 & cm				 
+		\\  
+		& Radius 				      	  			& 1.15 & cm				 
+		\\  
+		& Length				      	  			& 3.0  & m				 
+		\\  
+		& Pitch				      	  			& 3.0  & cm  			 \\ 
+		\hline 
+		
+		\multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}Moderator\\ 
+				assembly\end{tabular}} 
+		& Array				      	  			& 5 $\times$ 5 & 
+		rods$\times$rods \\  
+		& Pitch				      	  			& 15.0 & cm    				 
+		\\  \hline
+		
+		\multirow{4}{*}{\begin{tabular}[c]{@{}l@{}}Core\end{tabular}}          
+		& Assemblies  				   	  			& 268  & pcs/core 
+		\\  
+		& Inner radius			      	  			& 1.5  & 
+		m    				 \\  
+		& Plenum height			   	  			& 25.0 & cm    				 
+		\\  
+		& Vessel wall thickness     	  			& 5.0 & 
+		cm    				 \\ \hline            
+	\end{tabularx}
+	\label{tab:tap_model_param}
+\end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{figure}[htbp!] % replace 't' with 'b' to force it to be on the bottom
-        \centering
-        \includegraphics[width=\linewidth]{tap_plan_view.png}
-        \caption{The \gls{TAP} \gls{MSR} schematic core view showing moderator 
-        rods (figure reproduced from ORNL/TM-2017/475 
-        \cite{betzler_assessment_2017}).}
-        \label{fig:zoneI}
+\begin{figure}[htp!] % replace 't' with 'b' to 
+	\centering
+	\includegraphics[width=\linewidth]{tap_plan_view.png}
+	\caption{An $XY$ section of the \gls{TAP} model at horizontal midplane 
+		with fully withdrawn control rods. The violet color represents 
+		zirconium hydride, and the yellow represents fuel salt. The blue color 
+		shows Hastelloy-N, a material used for the vessel wall, and the pink 
+		color is the air.}
+	\label{fig:tap-serpent-plan}
 \end{figure}
 
+To represent reactivity control system the 
+model has: (1) control rod guide tubes made of nickel-based alloy; (2) control 
+rods represented as hollow 70-30\% Gd$_2$O$_3$-Al$_2$O$_3$ cylinders with a 
+thin Hastelloy-N coating \cite{betzler_assessment_2017}; (3) air inside guide 
+tubes and control rods. Control rods design has yielded a cluster of 25 rods 
+that provide a total reactivity worth of $1121\pm26$ pcm\footnote{ 1 pcm = 
+10$^{-5}\Delta k_{eff}/k_{eff}$.}.
+\subsection{Load following transient}
+Generic \gls{PWR} during steady state operation at a constant neutron flux 
+level reaches $^{135}$Xe/$^{135}$I equilibrium for that reactor power in about 
+40 to 60 hours. When the power level is decreased the neutron flux is reduced, 
+less $^{135}$Xe is transmuted ('burned') to $^{136}$Xe, and the balance shifts 
+to the larger $^{135}$Xe concentration. For the worst-case scenario for the 
+\gls{PWR} (power was reduced to 0\%) the xenon concentration peaks in about 
+8-9 hours after shutdown (depends on neutron spectrum). Based on this 
+knowledge of \gls{PWR} poisoning, we selected following worst-case load curve 
+(see figure~\ref{fig:pwr_keff}, 
+\ref{fig:tap_keff}; red line):
+\begin{enumerate}
+	\item Startup with fresh fuel and operating on 
+	100\% power level for 96 hours to reach $^{135}$Xe/$^{135}$I balance;
+	\item Instantaneous variation of the power from 100\% to 0\%;
+	\item Shutdown for 7.66 hours to reach the $^{135}$Xe peak;
+	\item Instantaneous power boost from 0\% to 100\%, then operation on 
+	this level for 16 hours.
+\end{enumerate}
+This scenario can be considered as backing up solar power with nuclear on a 
+high-solar penetration grid (e.g., in California).
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results and Analysis}
+Using the methodology described previously, the \gls{PWR} assembly and 
+the \gls{TAP} full core depletion analysis was performed without poison 
+removal. 
+We used 15-min power load curve resolution during active phase of the 
+transient to capture rapid changes in multiplication factor and isotopic 
+composition. All results herein were obtain using built-in Serpent 2 
+capabilities for fuel depletion calculations.
 
-Using the methodology described previously, the \gls{MSBR} unit cell depletion 
-analysis was performed to find equilibrium core conditions. Calculation results reported 
-in this section include multiplication factor, neutron flux energy 
-spectrum, and atomic density of major isotopes.
-
-\subsection{Equilibrium state analysis}
-
-This analysis models a single representative unit cell rather than the whole 
-\gls{MSBR} core. Consequently, it does not take into consideration different 
-fuel-moderator volume ratios for Zone I, Zone II, the annulus, and the reflector. The 
-initial multiplication factor during depletion calculation is selected for 
-a state with fully withdrawn control rods, which gives 
-considerable excess reactivity in the beginning of the cycle (approximately 5000 pcm). 
-The standard deviation for these calculations is approximately 100 pcm. Figure~\ref{fig:keff} 
-shows the infinite multiplication factor for 1200-days reprocessing cycle calculated by 
-Serpent 2 with ENDF/B-VII.0 nuclear data. A significant standard deviation causes the 
-multiplication factor fluctuations visible in this plot.
-
+\subsection{Multiplication factor and xenon equilibrium}
+Fig.~\ref{fig:pwr_keff} shows the infinite multiplication factor 
+($k_{\infty}$) evolution for the \gls{PWR} assembly during postulated 
+transient. As expected, $k_{\infty}$ dropped  after shutdown from 1.120 to 
+1.105 ($-1500$ pcm) because $^{135}$I decayed to $^{135}$Xe, and xenon 
+poisoned the core. The multiplication factor reached local minimum  
+$\approx7$ hours after shutdown. Notably, after power level growth from 
+0\% back to 100\% 
+$k_{\infty}$ reached even larger value than it was before shutdown ($\approx 
+1.1234$, $+300$ pcm). The imbalance between $^{135}$I production and 
+$^{135}$Xe 'burning' is a main reason of this reactivity boost.
 \begin{figure}[htbp!] % replace 't' with 'b' to force it to be on the bottom
 	\centering
-	\includegraphics[width=\linewidth]{pwr_keff_zoomed.png}
-	\caption{The \gls{TAP} \gls{MSR} schematic core view showing moderator 
-		rods (figure reproduced from ORNL/TM-2017/475 
-		\cite{betzler_assessment_2017}).}
-	\label{fig:zoneI}
+	\includegraphics[width=1.06\linewidth]{pwr_keff_zoomed.png}
+	\caption{Multiplication factor for worst-case load curve for the \gls{PWR} 
+	immediately after shutdown (confidence interval $\sigma\pm20$pcm shaded).}
+	\label{fig:pwr_keff}
 \end{figure}
+
+Fig.~\ref{fig:tap_keff} demonstrates the effective multiplication factor 
+($k_{eff}$) dynamics in the same transient for full-core \gls{TAP} \gls{MSR} 
+model without any online \gls{FP} removal. Surprisingly, $k_{eff}$ slowly 
+increased after shutdown from 1.0065 to 1.0078 ($+130$ pcm), and overall  
+reactivity swing for the scenario is much smaller (270 pcm difference between 
+maximum and minimum vs 1750 pcm for the \gls{PWR}). Similarly to the \gls{PWR} 
+case, $k_{eff}$ for the \gls{TAP} jumped after reactor power turned back to 
+100\% but by 150 pcm only. The standard deviations for thesecalculations are  
+20 and 7.5 pcm for the \gls{PWR} and \gls{TAP}, respectively. 
 \begin{figure}[htbp!] % replace 't' with 'b' to force it to be on the bottom
 	\centering
-	\includegraphics[width=\linewidth]{tap_keff_zoomed.png}
-	\caption{The \gls{TAP} \gls{MSR} schematic core view showing moderator 
-		rods (figure reproduced from ORNL/TM-2017/475 
-		\cite{betzler_assessment_2017}).}
-	\label{fig:zoneI}
-\end{figure}
-\begin{figure}[htbp!] % replace 't' with 'b' to force it to be on the bottom
-        \centering
-        \includegraphics[width=1.05\linewidth]{keff.png}
-        \caption{Infinite multiplication factor during a 1200 days depletion
-        simulation.The confidence interval $\pm\sigma$ is shaded.}
-        \label{fig:keff}
+	\includegraphics[width=1.06\linewidth]{tap_keff_zoomed.png}
+	\caption{Multiplication factor for worst-case load curve for the \gls{TAP} 
+	immediately after shutdown ($\sigma\pm7.5$pcm shaded).}
+	\label{fig:tap_keff}
 \end{figure}
 
-\FloatBarrier
-
-Protactinium-233 is continuously removing into the tank for protactinium decay.  $^{233}$Pa has a half-life of 27 days and 
-beta decays into $^{233}$U which as fresh fuel goes back to the reactor core. 
-The infinite multiplication factor decreases first 400 days of depletion due to 
-strong absorbers (e.g. $^{233}$Th, $^{234}$U) accumulation which causes 
-relatively high fuel ($^{233}$U) refill inflow to keep reactor critical. During 
-reactor operation producing fissile materials other than $^{233}$U in the core 
-(e.g. $^{235}$U, $^{239}$Pu) which makes it possible to decrease fresh fuel 
-refill rate after ~1 year of operation.
-
+The analysis of the fuel composition variation givesclearer information about 
+the $^{135}$Xe/$^{135}$I equilibrium and the core state. Fig.~\ref{fig:compos} 
+shows the normalized number density of isotopes influentialto core 
+neutronics. After 96 hours of operation on 100\% power level xenon reached 
+equilibrium concentration, and $^{135}$I/$^{135}$Xe number density ratio is 
+2.3 and 0.9 for the \gls{PWR} and \gls{TAP}, respectively. After shutdown the 
+$^{135}$I decays to $^{135}$Xe that is not burned up. The \gls{PWR} had large 
+$^{135}$I inventory which caused notable xenon concentration peak by 150\% 
+from equilibrium after about 7 hours due to shorter $^{135}$I half-life (6.6h 
+vs 9.17h for $^{135}$Xe). Contrarily, in the \gls{TAP} $^{135}$Xe 
+concentration remained unchanged after shutdown because $^{135}$I inventory 
+was lower than $^{135}$Xe. Thus, $^{135}$Xe gain from $^{135}$I decay did not 
+overcome $^{135}$Xe decay loss. In sum, the poisoning effect does not impacts 
+on the \gls{TAP} core reactivity even in worst-case transient because it 
+produce much lower $^{135}$I/$^{135}$Xe ratio at equilibrium than 
+conventional \gls{PWR}.
 \begin{figure}[htbp!] % replace 't' with 'b' to force it to be on the bottom
         \centering
-        \includegraphics[width=1.05\linewidth]{tap_vs_pwr_xe_i_density.png}
-        \caption{Normalized number density of major isotopes during 1200 days of 
-        depletion.}
+        \includegraphics[width=1.07\linewidth]{tap_vs_pwr_xe_i_density.png}
+        \caption{Atomic density of $^{135}$Xe and its precursor ($^{135}$I) 
+        immediately after shutdown for the \gls{TAP} and \gls{PWR}.}
         \label{fig:compos}
 \end{figure}
 
-\FloatBarrier
-
-The analysis of the fuel salt composition variation gives clearer information 
-about the equilibrium core state. Figure~\ref{fig:compos} shows the normalized 
-number density of isotopes influential to core 
-neutronics at the beginning of each depletion time interval. The number density 
-of protactinium is very low (less than 10$^{16}$ 1/cm$^3$) but some small amount 
-of it is produced during the 3-day reprocessing period. In this assessment, the multiplication 
-factor stabilizes after approximately 950 days. 
-Figure~\ref{fig:rates} represents the rates of online reprocessing material flows
-flows over the 4-year depletion calculation. 
-In Figure~\ref{fig:rates} we can see that, to keep the reactor critical, a 
-higher $^{233}$U 
-flow rate from the protactinium decay tank was required for first 400 days of 
-operation. After that, the $^{233}$U flow rate can be reduced. The $^{232}$Th 
-rate slightly decreases over 4 years of operation due to other than $^{233}$U 
-fissile materials accumulation.
-
-As shown in Figure~\ref{fig:outflow}, the tank for protactinium decay 
-accumulates $^{233}$Pa for approximately 200 days. Fresh $^{233}$U fuel flow is 
-also established after 200 days. Uranium produced in the tank by protactinium 
-decay is separated by circulation of the salt through a flourinator. The fully 
-processed molten salt, on its way back to the primary loop, has uranium added 
-at the rate required to maintain or adjust the fissile material concentration 
-and, hence, the reactivity, in the reactor core as desired.
-
 \subsection{Neutron spectrum}
-
-Figure~\ref{fig:spectrum} represents the neutron flux per lethargy energy distribution 
-of the initial and the equilibrium core compositions. The spectrum for the 
-equilibrium state is harder than the initial state due to heavy fission 
-products.  
+To understand difference between $^{135}$I/$^{135}$Xe gain and loss for two 
+reactor types, we plotted the neutron flux per lethargy energy distribution 
+(fig.~\ref{fig:spectrum}). The spectrum for the \gls{TAP} is harder than for 
+the \gls{PWR} due to lack of moderation in the \gls{TAP} core 
+(\gls{SVF}$\approx0.9$) and its type (ZrH). The harder neutron spectrum leads  
+accelerated $^{135}$Xe loss rate because capture cross section is declined 
+rapidly with energy (see fig.~\ref{fig:spectrum}, energy interval from 
+$10^{-7}$ to $10^{-4}$).
 \begin{figure}[htbp!] % replace 't' with 'b' to force it to be on the bottom
         \centering
-        \includegraphics[width=1.05\linewidth]{spectra.png}
-        \caption{Neutron spectra for PWR and TAP vs $^{135}$Xe and $^{135}$I 
+        \includegraphics[width=1.07\linewidth]{spectra.png}
+        \caption{Neutron spectra normalized by lethargy for the \gls{PWR} and 
+        \gls{TAP} vs $^{135}$Xe and $^{135}$I 
         caption cross-section.}
         \label{fig:spectrum}
 \end{figure}
-
-\FloatBarrier 
-
-In this work, only the Zone I unit cell, where the fuel salt volume fraction is 
-13.2\%, was considered. The neutron spectrum for Zone II cell, where the fuel 
-salt volume fraction is 37\% is expected to be harder and the peak in thermal 
-energy region is predicted to be much 
-lower. To obtain a high-fidelity neutron energy spectrum, a full-core \gls{MSBR}
-analysis is required.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions}
-The depletion calculation of the \gls{MSBR} unit cell model for finding the 
-equilibrium states was performed using the Serpent 2 Monte Carlo code to 
-simulate simplified case of the online reprocessing and refueling to find 
-equilibrium material composition. When running depletion calculation, the 
-fission products are removed and fertile/fissile materials are added to fuel 
-salt every 3 days. The important MSR feature, online reprocessing \& refueling 
-is implemented in the Serpent 2 material burnup routine. The results of this 
+The depletion calculations of the \gls{PWR} assembly and \gls{TAP} full-core  
+models for simple load following transient were performed using the Serpent 2 
+Monte Carlo code to illuminated impact of Xenon-135 poisoning on the \gls{MSR}.
+The transient assumed for both reactor types following power curve: (1) 
+96-hour operation cycle on 100\% power level; (2) instant power drop to 0\% 
+level for 7.66h (to reach $^{135}$Xe concentration peak); (3) boost back to 
+100\% power, and operation on this level for 16 hours. The results of this 
 study indicate that from the depletion calculation the multiplication factor 
-slowly decreases and reaches to the equilibrium state. The most obvious finding 
-to emerge from the analysis of initial and equilibrium materials composition is 
-that neutron energy spectrum is harder for equilibrium state because 
-significant amount of heavy fission products were accumulated in the \gls{MSBR} 
-core.
+for the \gls{PWR} dropped rapidly after reactor shutdown and reached maximum 
+poisoning effect (-1500pcm) $\approx7$ hours after shutdown. This 
+happened because $^{135}$I/$^{135}$Xe number density ratio at equilibrium in 
+the \gls{PWR} is about 2.3 and $^{135}$I decays to $^{135}$Xe faster than 
+$^{135}$Xe to $^{135}$Cs.
 
-These results are contrary with those of Jeong and Park (2016) who suggested 
-two different unit cell models and uses \gls{MCNP} with Python-script to 
-simulate \gls{MSBR} online reprocessing to find equilibrium composition. This 
-inconsistency may be due to different fuel fraction in the unit cell (Jeong and 
-Park selected 20.6\% salt fraction). To obtain better results for this online 
-reprocessing simulation, many future efforts are planned. First, a depletion 
-simulation will be performed using a  full-core, three-dimensional, high-fidelity 
-model of \gls{MSBR} that has been developed in Serpent 2. In this case, different 
-fuel-moderator volume ratios for the reactor Zone I, Zone II, annulus, 
-and reflectors will be taken into account to find accurate multiplication factor, 
-neutron spectrum and, hence, depleted composition. Secondly, an additional Serpent 
-2 flow control system subroutine should be developed to simulate adjusting 
-material flows (e.g. rate of removing $^{233}$Pa from the salt and adding 
-fissile $^{233}$U from the tank for protactinium decay) depending upon the 
-instantaneous reactivity value, which is a more promising reactivity control method than moving 
-control rods. Finally, the temperature effect of reactivity for both 
-fuel salt and graphite should be calculated to find optimal effective 
-multiplication factor range. 
+Similar depletion calculation for the \gls{TAP} \gls{MSR} showed different 
+result: $k_{eff}$ rose a bit after the reactor shutdown and no effect of xenon 
+poisoning was observed. The reason of this behavior is different 
+$^{135}$I/$^{135}$Xe concentration ratio which is about 0.9. Thus, $^{135}$I 
+decay did not lead to the xenon peak in the \gls{TAP} and the poisoning effect 
+is negligible. The most obvious finding to emerge from the analysis is that 
+neutron energy spectrum is harder for the \gls{TAP}. The reactor neutron energy
+spectrum greatly impacts $^{135}$Xe 'burn' rate and changes 
+$^{135}$I/$^{135}$Xe mass balance at equilibrium.
 
+Continued research into the 	\gls{MSR} load following and related topics 
+could 
+progressin a number of different directions. First and foremost, efforts will 
+be made to investigate impact of xenon poisoning on \gls{TAP} in the 
+end-of-life (BOL) state which might has more thermal neutron spectrum. This 
+might be performed with online reprocessing tool SaltProc 
+\cite{rykhlevskii_modeling_2019, rykhlevskii_arfc/saltproc_2018} which would 
+simulate online fuel reprocessing and refueling to obtain realistic 
+equilibrium fuel salt composition, crucial for a realistic transient 
+simulations. Furthermore, the \gls{TAP} design allows changing \gls{SVF} 
+during operation which also should be taken into account.
+
+Lastly, an additional area to explore is the multi-physics transient analysis 
+whichrequires development \gls{TAP} model with the coupled 
+neutronics/thermal-hydraulics code, Moltres \cite{lindsay_introduction_2018}. 
+The final goal of this effort is to characterize neutronics and 
+thermal-hydraulics limits related to load following, and optimize control rod 
+maneuver strategy that minimizes axial offset, and maintains safety margins.
+\section{Acknowledgments}
+This research was supported by the DOE ARPA-E MEITNER program award 
+DE-AR0000983.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliographystyle{ans}
 \bibliography{2019-rykhl-xenon-ans}
