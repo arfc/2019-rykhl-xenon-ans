@@ -1,3 +1,51 @@
+\subsection{Load following}
+\begin{frame}
+\frametitle{Why load following nuclear reactor is a game changer?}
+	\begin{textblock*}{12.1cm}(0.3cm,1.65cm) % {block width} (coords)
+\begin{figure}[t]
+	\includegraphics[width=\textwidth]{./images/ne_one_day_price.png}
+		\vspace{-6mm}
+	\caption{ISO New England hourly electricity price; November 3, 2019 
+	from 00:00AM to 11:00PM (Source: https://www.iso-ne.com/).}
+\end{figure}  
+\end{textblock*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Nuclear Power Plants as a based-load vs load-following}
+	\vspace{-4mm}
+\begin{overlayarea}{\linewidth}{20\baselineskip}
+	\begin{block}{Historically used as base-load source of electricity}<1->
+		\begin{enumerate}
+			\item Usually simplier and more efficient
+			\item Nuclear fraction in total power generation was small
+			\item Maneuvering capabilities limited to frequency regulation
+		\end{enumerate}
+	\end{block}
+	\begin{block}{Motivation for load-following with nuclear power}<2->
+	\begin{enumerate}
+		\item The share of nuclear power in total generation became large 
+		(75\% in France)
+		\item Large-scale deployment of intermittent renewables (wind, solar)
+	\end{enumerate}
+	\end{block}
+	\begin{block}{Physical effects limiting the maneuvering capabilities 
+		\cite{lokhov_technical_2011}}<3->
+	\begin{enumerate}
+		\item<3-> Moderator effect (primary coolant temperature change)
+		\item<3-> Doppler effect (fuel temperature change)
+		\item<4-> Fuel burnup (low excess of reactivity at EOC)
+		\item<5-> \textbf{Xenon-135 poisoning (iodine pit)}
+	\end{enumerate}
+\end{block}
+\end{overlayarea}
+\end{frame}
+
+\begin{frame}
+\frametitle{What is Xenon-135 poisoning?}
+\animategraphics[loop,controls,width=1.07\linewidth]{0.5}{./images/anime/xe_pois-}{0}{11}
+\end{frame}
+
 \subsection{Molten Salt Reactors}
 
 \begin{frame}
@@ -94,51 +142,36 @@
 		\item High fuel utilization $\Rightarrow$ reduced spent fuel 
 		generation
 		\item<2> \textbf{On-line (continuous) fuel reprocessing potentially  
-		allows to avoid Xenon-135 poisoning} $\Rightarrow$ exceptional 
-		performance during load following
+		helps to reduce Xenon-135 poisoning} $\Rightarrow$ more flexible  
+		power maneuvering
 	\end{enumerate}
 \end{block}
 
 \end{frame}
 
-\begin{frame}
-\frametitle{What is Xenon-135 poisoning?}
-\animategraphics[loop,controls,width=1.07\linewidth]{0.5}{./images/anime/xe_pois-}{0}{11}
-\end{frame}
-
-\begin{frame}
-\frametitle{Why load following nuclear reactor is a game changer?}
-sdfdf
-\end{frame}
-
-
 
 \subsection{Research objectives}
 
 \begin{frame}
-  \frametitle{Research objectives of purposed work}
-                  \vspace*{-0.05in}
-      The main objective of the proposed work is to develop the on-line  reprocessing simulation package, SaltProc, for liquid-fueled MSR depletion simulations.
-     \begin{block}{SaltProc desired capabilities:}<1-6>
+  \frametitle{Research objectives of this work}
+     Analyze the \glsfirst{TAP} \glsfirst{MSR} neutronic performance during 
+     load following at the \glsfirst{BOL} and inactive online fission products 
+     removal system.
+  \begin{overlayarea}{\linewidth}{20\baselineskip}
+     \begin{block}{Goals of current study}<1->
          \begin{enumerate}
-         		%\itemsep1em
-                \item \textbf{Realistic} multi-component fuel 
-                reprocessing 
-                system modeling
-                \item \textbf{Variable} extraction efficiency support
-                \item<2-6> Reactivity control by \textbf{changing geometry} of 
-                the core during simulation
-                \item<3-6> \textbf{Open-source} with continuous tests and 
-                automatic documentation system 
+         		\itemsep1em
+                \item<1-> Create high-fidelity full-core 3-D model of 
+                \glsfirst{TAP} \glsfirst{MSR}, without anyapproximations 
+                using Serpent 
+                \cite{leppanen_serpent_2014}
+                \item<2-> Perform fuel salt depletion to study 
+                \textbf{$^{135}$Xe/$^{135}$I balance dynamics during 
+                load-following}
+            	\item<3-> Analyze $k_{eff}$ dynamics during this transient 
+                \item<4-> Compare obtained results with well-studied 
+                \glsfirst{PWR} behavior
          \end{enumerate}
       \end{block}
-            \vspace{-0.1in}
-	\begin{block}{SaltProc demonstration and validation}<4-6>
-		\begin{enumerate}
-			\item<4-6> \textbf{Lifetime-long (60 years)} depletion with ideal/realistic $\epsilon_e$
-			\item<5-6> Short-term (3-7 days) depletion for the \gls{TAP} concept \textbf{during load-following}
-			\item<6> Safety parameters (thermal feedback coefficient, control rod worth, power 
-			axial offset) \textbf{evolution during operation}
-		\end{enumerate}
-	\end{block}
+  \end{overlayarea}
 \end{frame}
