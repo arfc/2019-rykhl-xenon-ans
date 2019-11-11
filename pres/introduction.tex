@@ -13,7 +13,7 @@
 
 \begin{frame}
 \frametitle{Nuclear Power Plants as a based-load vs load-following}
-	\vspace{-4mm}
+\begin{textblock*}{12cm}(0.4cm,1.5cm) % {block width} (coords)
 \begin{overlayarea}{\linewidth}{20\baselineskip}
 	\begin{block}{Historically used as base-load source of electricity}<1->
 		\begin{enumerate}
@@ -39,6 +39,7 @@
 	\end{enumerate}
 \end{block}
 \end{overlayarea}
+\end{textblock*}
 \end{frame}
 
 \begin{frame}
@@ -48,15 +49,15 @@
 
 \subsection{Molten Salt Reactors}
 
-\begin{frame}
-\frametitle{Potential Generation IV reactor systems \cite{abram_generation-iv_2008}}
-\begin{figure}[t]
-	\vspace*{-0.1in}
-	\includegraphics[height=0.7\textwidth]{./images/6_types.png}
-	\caption{\gls{MSR} design}
-\end{figure}            
-\end{frame}
-
+%\begin{frame}
+%\frametitle{Potential Generation IV reactor systems 
+%%%\cite{abram_generation-iv_2008}}
+%\begin{figure}[t]%
+%	\vspace*{-0.1in}
+%	\includegraphics[height=0.7\textwidth]{./images/6_types.png}
+%	\caption{\gls{MSR} design}
+%\end{figure}            
+%\end{frame}
 
 \begin{frame}
 \frametitle{MSR (Molten Salt Reactor) types}
@@ -129,7 +130,8 @@
 
 \begin{frame}
 \frametitle{Why Molten Salt Reactors with circulating fuel?}
-\begin{block}{Liquid-fueled \gls{MSR} designs have following \textbf{potential} advantages:}
+\begin{block}{Liquid-fueled MSR designs have following \textbf{potential} 
+advantages:}
 	\begin{enumerate}
 		\itemsep1em
 		\item High coolant temperature (600-750$^{\circ}$C) 
@@ -162,13 +164,14 @@
          \begin{enumerate}
          		\itemsep1em
                 \item<1-> Create high-fidelity full-core 3-D model of 
-                \glsfirst{TAP} \glsfirst{MSR}, without anyapproximations 
+                TAP concept, without anyapproximations 
                 using Serpent 
                 \cite{leppanen_serpent_2014}
                 \item<2-> Perform fuel salt depletion to study 
                 \textbf{$^{135}$Xe/$^{135}$I balance dynamics during 
                 load-following}
-            	\item<3-> Analyze $k_{eff}$ dynamics during this transient 
+            	\item<3-> Analyze $k_{eff}$ dynamics during 
+            	\textbf{load-following}
                 \item<4-> Compare obtained results with well-studied 
                 \glsfirst{PWR} behavior
          \end{enumerate}
