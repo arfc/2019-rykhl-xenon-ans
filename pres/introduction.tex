@@ -1,4 +1,4 @@
-\subsection{Load following}
+\subsection{Load-following}
 \begin{frame}
 \frametitle{Why load following nuclear reactor is a game changer?}
 	\begin{textblock*}{12.1cm}(0.3cm,1.65cm) % {block width} (coords)
@@ -26,15 +26,18 @@
 	\begin{enumerate}
 		\item The share of nuclear power in total generation became large 
 		(75\% in France)
-		\item Large-scale deployment of intermittent renewables (wind, solar)
+		\item Large-scale deployment of intermittent renewables (up to 40\% in 
+		California)
 	\end{enumerate}
 	\end{block}
-	\begin{block}{Physical effects limiting the maneuvering capabilities 
+	\begin{block}{Physical effects in \gls{LWR} limiting the maneuvering 
+	capabilities 
 		\cite{lokhov_technical_2011}}<3->
 	\begin{enumerate}
 		\item<3-> Moderator effect (primary coolant temperature change)
 		\item<3-> Doppler effect (fuel temperature change)
-		\item<4-> Fuel burnup (low excess of reactivity at EOC)
+		\item<4-> Fuel burnup (low excess of reactivity at the end-of-cycle 
+		(EOC))
 		\item<5-> \textbf{Xenon-135 poisoning (iodine pit)}
 	\end{enumerate}
 \end{block}
@@ -61,29 +64,44 @@
 
 \begin{frame}
 \frametitle{MSR (Molten Salt Reactor) types}
+\begin{textblock*}{12cm}(0.4cm,1.5cm) % {block width} (coords)
 \begin{overlayarea}{\linewidth}{20\baselineskip}
 \begin{block}{Stationary Fuel}<1-4>
 	\begin{enumerate}
-		\item Graphite block with TRISO fuel, clean salt works as 
-		coolant (Fluoride-Salt-Cooled High-Temperature 
-		Reactor (FHR))
-		\item Plate Fuel: hexagonal fuel assembly is similar in shape to a typical sodium-cooled reactor
-		\item Fuel Inside Radial Moderator (FIRM)
-		\item Liquid fuel salt inside fuel rods cooled by clean salt 
-		(Moltex Stable Salt Reactor)
+		\item \textbf{Solid}
+			\begin{itemize}
+				\item Graphite block with TRISO fuel, clean salt works as 
+				coolant (Fluoride-Salt-Cooled High-Temperature Reactor (FHR))
+				\item Plate Fuel: hexagonal fuel assembly is similar in shape 
+				to a typical sodium-cooled reactor
+				\item Fuel Inside Radial Moderator (FIRM)
+			\end{itemize}
+		\item \textbf{Liquid}
+			\begin{itemize}
+				\item Liquid fuel salt inside fuel rods cooled by clean salt 
+				(Moltex Stable Salt Reactor)
+			\end{itemize}
 	\end{enumerate}
 \end{block}
 
 \begin{block}{Mobile Fuel}<2-4>
 	\begin{enumerate}
-		\item<2-4> Mobile solid fuel elements (pebbles) cooled by 
-		clean salt (PB-FHR)
-		\item<3-4> Non-circulating liquid fuel salt (TerraPower \gls{MCFR}) 
-		\item<4> \textbf{Circulating liquid fuel salt} which also works 
-		as coolant (\gls{MSBR})
+		\item \textbf{Solid}
+			\begin{itemize}
+				\item<2-> Mobile solid fuel elements (pebbles) cooled by 
+				clean salt (PB-FHR)
+			\end{itemize}
+		\item<3-> \textbf{Liquid}
+			\begin{itemize}
+				\item<3-> Without on-site fuel reprocessing facility 
+				(TerraPower \glsfirst{MCFR})
+				\item<4-> \textbf{With on-site fuel reprocessing} 
+				(\glsfirst{TAP} MSR, \glsfirst{MSBR})
+			\end{itemize}
 	\end{enumerate}
 \end{block}
 \end{overlayarea}
+\end{textblock*}
 \end{frame}
 
 
@@ -105,8 +123,8 @@
 \hspace*{-0.35in}
 \includegraphics[height=0.6\textwidth]{./images/mcfr-crossection.jpg}
 \caption{The TerraPower MCFR is an example of reactor design with 
-\textbf{liquid, mobile, non-circulating} chloride salt fuel 
-\cite{doene_southern_2018}.}
+\textbf{liquid, mobile} chloride salt fuel but \textbf{without on-site 
+reprocessing} \cite{doene_southern_2018}.}
 \end{figure}   
 
 \end{frame}
@@ -116,11 +134,11 @@
 \frametitle{Mobile, Circulating, Liquid Fuel}
 \vspace{-2mm}
 \begin{figure}[t]
-      \includegraphics[height=0.6\textwidth]{./images/msbr_scheme.png}
-	\caption{The \gls{MSBR} is an example of reactor design with 
-	\textbf{liquid, mobile, circulating} fluoride salt fuel 
-	(reproduced from Rosenthal \emph{et al.} 
-	\cite{rosenthal_molten-salt_1970}).}
+      \includegraphics[height=0.63\textwidth]{./images/tap_primary_loop.png}
+    \vspace{-2mm}
+	\caption{The \gls{TAP} reactor is an example of reactor design with 
+	\textbf{liquid, mobile} fluoride salt fuel and \textbf{with on-site 
+	reprocessing plant}	\cite{transatomic_power_corporation_technical_2016}.}
 \end{figure}   
 
 \end{frame}
@@ -156,15 +174,16 @@ advantages:}
 
 \begin{frame}
   \frametitle{Research objectives of this work}
-     Analyze the \glsfirst{TAP} \glsfirst{MSR} neutronic performance during 
-     load following at the \glsfirst{BOL} and inactive online fission products 
-     removal system.
+     Analyze the TAP MSR neutronic performance during load-following at the 
+     \glsfirst{BOL} and \textbf{inactive online fission products removal 
+     system}.
   \begin{overlayarea}{\linewidth}{20\baselineskip}
      \begin{block}{Goals of current study}<1->
          \begin{enumerate}
          		\itemsep1em
                 \item<1-> Create high-fidelity full-core 3-D model of 
-                TAP concept, without anyapproximations 
+                TAP concept, without any
+approximations 
                 using Serpent 
                 \cite{leppanen_serpent_2014}
                 \item<2-> Perform fuel salt depletion to study 
