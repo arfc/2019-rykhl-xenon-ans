@@ -1,56 +1,88 @@
 \begin{frame}
-\frametitle{Completed and future work}       
-\begin{textblock*}{12.5cm}(0.1cm,2.2cm) % {block width} (coords)
-	\begin{figure}[ht!] % replace 't' with 'b' to force it to 
-		\includegraphics[width=\textwidth]{./images/progress_chart_larger.pdf} 
-	\end{figure}
-\end{textblock*}
-\end{frame}
-
-\begin{frame}
-\frametitle{Conclusion}
+\frametitle{Conclusions}
 	\begin{textblock*}{12cm}(0.4cm,2cm) % {block width} (coords)
-	\begin{itemize}
-		\itemsep1em
-		\item Relevance
-		\begin{itemize}
-			\itemsep0.5em
-			\item Fuel salt processing systems modeling in \glspl{MSR} based 
-			on \textbf{many assumptions and estimations}
-			\item This work will \textbf{more realistically} model salt 
-			processing system with a \textbf{focus on the gas removal system}  
-			of the prospective \gls{TAP} \gls{MSR}
-		\end{itemize} 
-		\item Preliminary results
-			\begin{itemize}
-				\itemsep0.5em
-				\item Simple demonstration for \gls{MSBR} with 
-				\textbf{ideal/fixed	fission products removal efficiency}
-				\item \textbf{Multi-component} fuel reprocessing system 
-				modeling with \textbf{non-ideal/constant} 
-				efficiency
-				\item \textbf{Effect of fission product removal} on the core 
-				neutronics
-			\end{itemize}
-		
-		\item Future work
-			\begin{itemize}
-				\itemsep0.5em
-				\item Add \textbf{variable geometry} and \textbf{dynamic 
-				removal efficiency capability}
-				\item Demonstrate and validate those capabilities for 
-				\textbf{lifetime-long depletion}
-				\item Simulate short-term transients to determine the 
-				\textbf{feasibility of load following}
-				\item Determine feasible \textbf{design parameters of the 
-				sparger}
-				\item Analyze \textbf{dynamics of the safety parameters} for 
-				long- and short-term cases
-			\end{itemize}
-	\end{itemize}
+	\begin{block}{Main outcomes}
+		\begin{enumerate}
+			\itemsep=3mm
+			\item The neutron energy spectrum at the beginning-of-life 
+			(BOL) for the \gls{TAP} eactor is \textbf{fast} $\Rightarrow$ 
+			\textbf{gas removal system can be disabled} at \gls{BOL}
+			\item The spectrum becomes \textbf{more thermal} during operation 
+			due to \textbf{increasing moderator-to-fuel ratio} $\Rightarrow$ 
+			the xenon gas removal system \textbf{must operate} to enable 
+			load-following
+
+			\item Multiplication factor during depletion simulations for 
+			postulated load-following transient demonstrated following 
+			dynamics:
+				\begin{itemize}
+					\item For PWR, dropped rapidly after shutdown; reached 
+					maximum poisoning effect ($-1500pcm$) $\approx$ 7 hours 
+					after shutdown
+					\item For \gls{TAP} concept, very small change in 
+					$k_{eff}$, no effect of $^{135}$Xe poisoning was observed
+				\end{itemize}
+			\item \textbf{PWR}: the drop happened because 			
+			$m_{^{135}I}/m_{{135}Xe} = 2.3$ and $^{135}$I decays to $^{135}$Xe 
+			faster ($\tau_{1/2}=6.6h$) than $^{135}$Xe decays to $^{135}$Cs 
+			($\tau_{1/2}=9.17h$)
+			\item \textbf{\gls{TAP} \gls{MSR}}: no poisoning effect because 
+			$m_{^{135}I}/m_{{135}Xe} = 0.9$
+		\end{enumerate}
+	\end{block}
+
+
+	\end{textblock*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Future work}
+\begin{textblock*}{12cm}(0.4cm,2.0cm) % {block width} (coords)
+	\begin{block}{Future research effort}
+		\begin{enumerate}
+		\itemsep=5mm
+			\item Investigate the impact of xenon poisoning for the TAP 
+			concept at the end-of-life (EOL), which night have softer neutron 
+			spectrum
+			\item Take into account gas removal system using the online 
+			reprocessing tool SaltProc \cite{rykhlevskii_arfc/saltproc_2018, 
+			rykhlevskii_modeling_2019}
+			\item Take into consideration the \gls{TAP} design adjustable 
+			moderator-to-fuel ratio
+			\item Develop a fuel processing system that enables load-following 
+			in a various commercial thermal molten salt reactors:
+				\begin{itemize}
+					\item Terrestrial Energy Integral Small Modular Reactor
+					\item ThorCon Small Modular Reactor
+				\end{itemize}
+			\item Analyze multi-physics transients using the coupled 
+			neutronics/thermal-hydraulics code Moltres 
+			\cite{lindsay_introduction_2018}
+		\end{enumerate}
+	\end{block}
 \end{textblock*}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Questions?}
+\frametitle{Acknowledgement}
+\begin{itemize}
+	\item Andrei Rykhlevskii, Kathryn Huff, and Tomasz 	Kozlowski are 
+	supported by DOE ARPA-E MEITNER program award DE-AR0000983.
+	\item This research is part of the Blue Waters sustained-petascale 
+	computing project, which is supported by the National Science Foundation 
+	(awards OCI-0725070 and ACI-1238993) and the state of Illinois.
+	\item Kathryn Huff is additionally supported by the NRC Faculty 
+	Development Program, the NNSA (awards DE-NA0002576 and DE-NA0002534), and 
+	the International Institute for Carbon Neutral Energy Research 
+	(WPI-I2CNER).
+	\item The authors would like to thank  members of Advanced Reactors and 
+	Fuel Cycles	research group (ARFC) at the University of Illinois at Urbana 
+	Champaign who provided valuable reviews and proofreading.
+	\item Anshuman Chaube, Alvin Lee (University of Illinois at 
+	Urbana-Champaign).
+\end{itemize}
+\begin{figure}[t]
+	\hspace*{-0.4in}
+	\includegraphics[height=0.25\textheight]{./images/acks.png}
+\end{figure}
 \end{frame}
