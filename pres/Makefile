@@ -1,4 +1,4 @@
-manuscript = prelim_presentation
+manuscript = ans_xenon
 references = $(wildcard *.bib)
 latexopt   = -halt-on-error -file-line-error -shell-escape
 

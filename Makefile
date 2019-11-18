@@ -1,4 +1,4 @@
-manuscript = msbr_reproc
+manuscript = tap_xenon
 references = $(wildcard *.bib)
 latexopt   = -halt-on-error -file-line-error
 
