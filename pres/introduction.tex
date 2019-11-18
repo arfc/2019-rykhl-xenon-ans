@@ -1,6 +1,67 @@
+\begin{frame}
+\frametitle{UIUC Project Overview}
+        \begin{block}{ARPA-E MEITNER Award 1798-1576}
+                \begin{itemize}
+                        \item[\textbf{PI:}] Huff
+                        \item[\textbf{Co-PIs:}] Brooks, Heuser, Kozlowski, Stubbins
+                        \item[\textbf{Objective:}] This project will establish 
+                                a xenon removal sparger design to enable load 
+                                following in liquid-fueled MSRs at ramp rates 
+                                comparable or superior to natural gas peaking 
+                                generation, $\left(\frac{\pm 
+                                10\%}{\mbox{minute}}\right)$.
+                \end{itemize}
+        \end{block}
+
+        \begin{block}{Motivation}
+\begin{itemize}
+\item Load following Molten Salt Reactors are potentially transformative
+\item But, feasible online xenon removal system designs are absent.
+\end{itemize} 
+  The UIUC project will unlock the benefits of MSRs by bounding these designs
+        \begin{itemize}
+                \item \textbf{via simulation of multiple physics}
+                \begin{itemize}
+                        \item fluid dynamics,
+                        \item neutronics,
+                        \item and fuel cycle dynamics.
+                \end{itemize}
+                \item \textbf{and with novel mass transport and sparging experiments.}
+        \end{itemize}
+        \end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{UIUC Project Thrusts}
+\begin{figure}
+\includegraphics[width=\textwidth]{./images/system-diag.png}
+        \caption{In \textbf{4 major thrusts} the project will establish a 
+        feasible design for the sparging system, an overlooked MSR component 
+        essential to load following in thermal MSRs.}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{table}
+\includegraphics<1>[width=\linewidth]{./images/load-follow.png}
+\includegraphics<2>[width=\linewidth]{./images/load-follow-this-work.png}
+        \caption{\only<1>{Operating conditions and transients to be
+        investigated and constraints that the core must 
+        meet.}\only<2>{\textbf{This work} establishes that xenon removal may 
+        be unnecessary, even unadvisable, at BOL or for fast spectrum MSRs. Thermal 
+        and EOL reactors are expected to require xenon sparging.}}
+\end{table}
+\end{frame}
+
+
+
+
 \subsection{Load-following}
 \begin{frame}
-\frametitle{Why is a load following nuclear reactor a game changer?}
+\frametitle{Why is load following a game changer?}
 	\begin{textblock*}{12.1cm}(0.3cm,1.65cm) % {block width} (coords)
 \begin{figure}[t]
 	\includegraphics[width=\textwidth]{./images/ne_one_day_price.png}
@@ -12,38 +73,17 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Nuclear Power Plants as a base-load vs load-following}
-\begin{textblock*}{12cm}(0.4cm,1.5cm) % {block width} (coords)
-\begin{overlayarea}{\linewidth}{20\baselineskip}
-	\begin{block}{Historically used as base-load source of electricity}<1->
-		\begin{enumerate}
-			\item Usually simpler and more efficient
-			\item Nuclear fraction in total power generation was small
-			\item Maneuvering capabilities limited to frequency regulation
-		\end{enumerate}
-	\end{block}
-	\begin{block}{Motivation for load-following with nuclear power}<2->
+\frametitle{Nuclear Power Plant Load-Following}
+        \begin{block}{Limitations to \gls{LWR} power maneuvering \cite{lokhov_technical_2011}}
 	\begin{enumerate}
-		\item The share of nuclear power in total generation became large 
-		(75\% in France)
-		\item Large-scale deployment of intermittent renewables (up to 40\% in 
-		California)
-		\item Nuclear power is \textbf{carbon-free, non-intermittent}
-	\end{enumerate}
-	\end{block}
-	\begin{block}{Physical effects in \gls{LWR} limiting the maneuvering 
-	capabilities 
-		\cite{lokhov_technical_2011}}<3->
-	\begin{enumerate}
-		\item<3-> Moderator effect (primary coolant temperature change)
-		\item<3-> Doppler effect (fuel temperature change)
-		\item<4-> Fuel burnup (low excess of reactivity at the end-of-cycle 
+		\item<1-> Thermal strain and stress to fuel materials.
+		\item<1-> Moderator effect (primary coolant temperature change)
+		\item<1-> Doppler effect (fuel temperature change)
+		\item<1-> Fuel burnup (low excess reactivity at the end-of-cycle 
 		(EOC))
-		\item<5-> \textbf{Xenon-135 poisoning (iodine pit)}
+        \item<3-> \textbf{$^{135}Xe$ poisoning (iodine pit)}
 	\end{enumerate}
 \end{block}
-\end{overlayarea}
-\end{textblock*}
 \end{frame}
 
 \begin{frame}
@@ -165,10 +205,11 @@
 
 \begin{frame}
   \frametitle{Research objectives of this work}
-     Analyze the TAP MSR neutronic performance during load-following 
-     \textbf{at the \glsfirst{BOL}} and \textbf{inactive online fission 
-     products removal system}. The neutronics performance for the Middle of 
-     Life and End of Life will be different.
+     Analyze TAP MSR neutronic performance during load-following 
+     \textbf{at the \glsfirst{BOL}} and \textbf{without online fission 
+     product removal}. The neutronics performance for the Middle of 
+     Life and End of Life will be different, and will require fission product 
+        removal.
   \begin{overlayarea}{\linewidth}{20\baselineskip}
      \begin{block}{Goals of current study}<1->
          \begin{enumerate}
